@@ -22,7 +22,7 @@ namespace MusicGame
         private SpeechSynthesizer speechSynthesizer;
         private Id3Utils id3Utils;
         private string[] lylics;
-
+        private string[] resultPath;
         private Timer timer;
         private int MusicCount = 0;
         private int MusicMaxCount = 5;
@@ -30,8 +30,6 @@ namespace MusicGame
         private MusicPlayer musicPlayer;
         public MainForm()
         {
-
-         
             InitializeComponent();
 
             Init();
@@ -52,12 +50,13 @@ namespace MusicGame
             timer = new Timer();
             timer.Interval = 1000;
             timer.Tick += Timer_Tick;
+            timer.Start();
         }
 
         private void Timer_Tick(object sender, EventArgs e)
         {
             MusicCount++;
-            if(MusicCount == MusicMaxCount)
+            if (MusicCount == MusicMaxCount)
             {
                 MusicCount = 0;
                 // 음악 중지
@@ -86,19 +85,29 @@ namespace MusicGame
             // 콤보박스 상태 변경 이벤트
             cbType.SelectedValueChanged += CbType_SelectedValueChanged;
         }
-
+        Button btnPlay;
         private void CbType_SelectedValueChanged(object sender, EventArgs e)
         {
+
             if (((ComboBox)sender).SelectedItem.Equals("가사 보기"))
             {
                 GAME_TYPE = 0;
                 tkbCount.Width = tkbCount.Width;
+
+                // 버튼 되돌리기
+                if (this.Controls.Contains(btnPlay) && btnPlay != null)
+                {
+                    tkbCount.Width = tkbCount.Width + 100;
+
+                    this.Controls.Remove(btnPlay);
+                }
+
             }
             else
             {
                 GAME_TYPE = 1;
                 tkbCount.Width = tkbCount.Width - 100;
-                Button btnPlay = new Button();
+                btnPlay = new Button();
                 btnPlay.Location = new Point(880, 70);
                 btnPlay.Width = 100;
                 btnPlay.Height = 30;
@@ -107,6 +116,11 @@ namespace MusicGame
 
                 btnPlay.Click += BtnPlay_Click;
             }
+            if (lylics != null)
+            {
+                SetTrackBar(lylics.Length);
+            }
+
         }
 
         /// <summary>
@@ -116,6 +130,12 @@ namespace MusicGame
         /// <param name="e"></param>
         private void BtnPlay_Click(object sender, EventArgs e)
         {
+            if (resultPath == null || resultPath.Length == 0)
+            {
+                return;
+            }
+
+            musicPlayer.SetMusic(resultPath[0]);
             musicPlayer.PlayMusic();
             InitTimer();
         }
@@ -127,9 +147,10 @@ namespace MusicGame
         /// <param name="e"></param>
         private void TkbCount_ValueChanged(object sender, EventArgs e)
         {
+            lbCount.Text = ((TrackBar)sender).Value.ToString();
             if (GAME_TYPE == 0)
             {
-                lbCount.Text = ((TrackBar)sender).Value.ToString();
+                
                 if (lylics != null)
                 {
                     try
@@ -218,7 +239,7 @@ namespace MusicGame
             }
 
             Dictionary<string, List<string>> result = id3Utils.GetId3Lylics(path).Item1;
-            string[] resultPath = id3Utils.GetId3Lylics(path).Item2;
+            resultPath = id3Utils.GetId3Lylics(path).Item2;
 
             foreach (var item in result)
             {
