@@ -1,0 +1,88 @@
+E:\Project\Dotnet\MusicGame\bin\Debug\MusicGame.exe.config
+E:\Project\Dotnet\MusicGame\bin\Debug\MusicGame.exe
+E:\Project\Dotnet\MusicGame\bin\Debug\MusicGame.pdb
+E:\Project\Dotnet\MusicGame\obj\Debug\MusicGame.Properties.Resources.resources
+E:\Project\Dotnet\MusicGame\obj\Debug\MusicGame.csproj.GenerateResource.cache
+E:\Project\Dotnet\MusicGame\obj\Debug\MusicGame.csproj.CoreCompileInputs.cache
+E:\Project\Dotnet\MusicGame\obj\Debug\MusicGame.exe
+E:\Project\Dotnet\MusicGame\obj\Debug\MusicGame.pdb
+E:\Project\Dotnet\MusicGame\obj\Debug\MusicGame.MainForm.resources
+E:\Project\Dotnet\MusicGame\obj\Debug\MusicGame.UcGameType.resources
+D:\01.Project\MusicGame\bin\Debug\MusicGame.exe.config
+D:\01.Project\MusicGame\bin\Debug\MusicGame.exe
+D:\01.Project\MusicGame\bin\Debug\MusicGame.pdb
+D:\01.Project\MusicGame\obj\Debug\MusicGame.csprojAssemblyReference.cache
+D:\01.Project\MusicGame\obj\Debug\MusicGame.MainForm.resources
+D:\01.Project\MusicGame\obj\Debug\MusicGame.Properties.Resources.resources
+D:\01.Project\MusicGame\obj\Debug\MusicGame.UcGameType.resources
+D:\01.Project\MusicGame\obj\Debug\MusicGame.csproj.GenerateResource.cache
+D:\01.Project\MusicGame\obj\Debug\MusicGame.csproj.CoreCompileInputs.cache
+D:\01.Project\MusicGame\obj\Debug\MusicGame.exe
+D:\01.Project\MusicGame\obj\Debug\MusicGame.pdb
+D:\01.Project\MusicGame\bin\Debug\lib\Id3Lib.dll
+D:\01.Project\MusicGame\bin\Debug\Id3.Net.dll
+D:\01.Project\MusicGame\bin\Debug\JetBrains.Annotations.dll
+D:\01.Project\MusicGame\bin\Debug\Id3.Net.xml
+D:\01.Project\MusicGame\bin\Debug\JetBrains.Annotations.xml
+D:\01.Project\MusicGame\obj\Debug\MusicGame.csproj.CopyComplete
+E:\Project\Dotnet\MusicGame\bin\Debug\lib\Id3Lib.dll
+E:\Project\Dotnet\MusicGame\bin\Debug\Id3.Net.dll
+E:\Project\Dotnet\MusicGame\bin\Debug\JetBrains.Annotations.dll
+E:\Project\Dotnet\MusicGame\bin\Debug\Id3.Net.xml
+E:\Project\Dotnet\MusicGame\bin\Debug\JetBrains.Annotations.xml
+E:\Project\Dotnet\MusicGame\obj\Debug\MusicGame.csprojAssemblyReference.cache
+E:\Project\Dotnet\MusicGame\obj\Debug\MusicGame.csproj.CopyComplete
+E:\Project\Dotnet\MusicGame\bin\Debug\AxInterop.WMPLib.dll
+C:\2.StudyProjdct\MusicGame\bin\Debug\lib\Id3Lib.dll
+C:\2.StudyProjdct\MusicGame\bin\Debug\MusicGame.exe.config
+C:\2.StudyProjdct\MusicGame\bin\Debug\MusicGame.exe
+C:\2.StudyProjdct\MusicGame\bin\Debug\MusicGame.pdb
+C:\2.StudyProjdct\MusicGame\bin\Debug\AxInterop.WMPLib.dll
+C:\2.StudyProjdct\MusicGame\bin\Debug\Id3.Net.dll
+C:\2.StudyProjdct\MusicGame\bin\Debug\JetBrains.Annotations.dll
+C:\2.StudyProjdct\MusicGame\bin\Debug\Id3.Net.xml
+C:\2.StudyProjdct\MusicGame\bin\Debug\JetBrains.Annotations.xml
+C:\2.StudyProjdct\MusicGame\obj\Debug\MusicGame.csprojAssemblyReference.cache
+C:\2.StudyProjdct\MusicGame\obj\Debug\MusicGame.MainForm.resources
+C:\2.StudyProjdct\MusicGame\obj\Debug\MusicGame.Properties.Resources.resources
+C:\2.StudyProjdct\MusicGame\obj\Debug\MusicGame.UcGameType.resources
+C:\2.StudyProjdct\MusicGame\obj\Debug\MusicGame.csproj.GenerateResource.cache
+C:\2.StudyProjdct\MusicGame\obj\Debug\MusicGame.csproj.CoreCompileInputs.cache
+C:\2.StudyProjdct\MusicGame\obj\Debug\MusicGame.csproj.CopyComplete
+C:\2.StudyProjdct\MusicGame\obj\Debug\MusicGame.exe
+C:\2.StudyProjdct\MusicGame\obj\Debug\MusicGame.pdb
+C:\01.Project\잡다구리\MusicGame\MusicGame\bin\Debug\lib\Id3Lib.dll
+C:\01.Project\잡다구리\MusicGame\MusicGame\bin\Debug\MusicGame.exe.config
+C:\01.Project\잡다구리\MusicGame\MusicGame\bin\Debug\MusicGame.exe
+C:\01.Project\잡다구리\MusicGame\MusicGame\bin\Debug\MusicGame.pdb
+C:\01.Project\잡다구리\MusicGame\MusicGame\bin\Debug\AxInterop.WMPLib.dll
+C:\01.Project\잡다구리\MusicGame\MusicGame\bin\Debug\Id3.Net.dll
+C:\01.Project\잡다구리\MusicGame\MusicGame\bin\Debug\JetBrains.Annotations.dll
+C:\01.Project\잡다구리\MusicGame\MusicGame\bin\Debug\Id3.Net.xml
+C:\01.Project\잡다구리\MusicGame\MusicGame\bin\Debug\JetBrains.Annotations.xml
+C:\01.Project\잡다구리\MusicGame\MusicGame\obj\Debug\MusicGame.csprojAssemblyReference.cache
+C:\01.Project\잡다구리\MusicGame\MusicGame\obj\Debug\MusicGame.MainForm.resources
+C:\01.Project\잡다구리\MusicGame\MusicGame\obj\Debug\MusicGame.Properties.Resources.resources
+C:\01.Project\잡다구리\MusicGame\MusicGame\obj\Debug\MusicGame.UcGameType.resources
+C:\01.Project\잡다구리\MusicGame\MusicGame\obj\Debug\MusicGame.csproj.GenerateResource.cache
+C:\01.Project\잡다구리\MusicGame\MusicGame\obj\Debug\MusicGame.csproj.CopyComplete
+C:\01.Project\잡다구리\MusicGame\MusicGame\obj\Debug\MusicGame.exe
+C:\01.Project\잡다구리\MusicGame\MusicGame\obj\Debug\MusicGame.pdb
+C:\Users\star0\OneDrive\문서\카카오톡 받은 파일\MusicGame\MusicGame\MusicGame\bin\Debug\lib\Id3Lib.dll
+C:\Users\star0\OneDrive\문서\카카오톡 받은 파일\MusicGame\MusicGame\MusicGame\bin\Debug\MusicGame.exe.config
+C:\Users\star0\OneDrive\문서\카카오톡 받은 파일\MusicGame\MusicGame\MusicGame\bin\Debug\MusicGame.exe
+C:\Users\star0\OneDrive\문서\카카오톡 받은 파일\MusicGame\MusicGame\MusicGame\bin\Debug\MusicGame.pdb
+C:\Users\star0\OneDrive\문서\카카오톡 받은 파일\MusicGame\MusicGame\MusicGame\bin\Debug\AxInterop.WMPLib.dll
+C:\Users\star0\OneDrive\문서\카카오톡 받은 파일\MusicGame\MusicGame\MusicGame\bin\Debug\Id3.Net.dll
+C:\Users\star0\OneDrive\문서\카카오톡 받은 파일\MusicGame\MusicGame\MusicGame\bin\Debug\JetBrains.Annotations.dll
+C:\Users\star0\OneDrive\문서\카카오톡 받은 파일\MusicGame\MusicGame\MusicGame\bin\Debug\Id3.Net.xml
+C:\Users\star0\OneDrive\문서\카카오톡 받은 파일\MusicGame\MusicGame\MusicGame\bin\Debug\JetBrains.Annotations.xml
+C:\Users\star0\OneDrive\문서\카카오톡 받은 파일\MusicGame\MusicGame\MusicGame\obj\Debug\MusicGame.csprojAssemblyReference.cache
+C:\Users\star0\OneDrive\문서\카카오톡 받은 파일\MusicGame\MusicGame\MusicGame\obj\Debug\MusicGame.MainForm.resources
+C:\Users\star0\OneDrive\문서\카카오톡 받은 파일\MusicGame\MusicGame\MusicGame\obj\Debug\MusicGame.Properties.Resources.resources
+C:\Users\star0\OneDrive\문서\카카오톡 받은 파일\MusicGame\MusicGame\MusicGame\obj\Debug\MusicGame.UcGameType.resources
+C:\Users\star0\OneDrive\문서\카카오톡 받은 파일\MusicGame\MusicGame\MusicGame\obj\Debug\MusicGame.csproj.GenerateResource.cache
+C:\Users\star0\OneDrive\문서\카카오톡 받은 파일\MusicGame\MusicGame\MusicGame\obj\Debug\MusicGame.csproj.CoreCompileInputs.cache
+C:\Users\star0\OneDrive\문서\카카오톡 받은 파일\MusicGame\MusicGame\MusicGame\obj\Debug\MusicGame.csproj.CopyComplete
+C:\Users\star0\OneDrive\문서\카카오톡 받은 파일\MusicGame\MusicGame\MusicGame\obj\Debug\MusicGame.exe
+C:\Users\star0\OneDrive\문서\카카오톡 받은 파일\MusicGame\MusicGame\MusicGame\obj\Debug\MusicGame.pdb
