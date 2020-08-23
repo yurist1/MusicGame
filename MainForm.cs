@@ -26,6 +26,9 @@ namespace MusicGame
         private Timer timer;
         private int MusicCount = 0;
         private int MusicMaxCount = 5;
+        private int INDEXMUSIC = 0;
+        private int MUSICAMOUNT = 0;
+        private Dictionary<string, List<string>> result;
 
         private MusicPlayer musicPlayer;
         public MainForm()
@@ -71,6 +74,7 @@ namespace MusicGame
             speechSynthesizer = new SpeechSynthesizer();
             id3Utils = new Id3Utils();
             musicPlayer = new MusicPlayer();
+            result = new Dictionary<string, List<string>>();
         }
 
         private void InitEvent()
@@ -79,6 +83,7 @@ namespace MusicGame
             btnResult.Click += BtnResult_Click;
             btnNext.Click += BtnNext_Click;
             btnPrev.Click += BtnPrev_Click;
+            
 
             tkbCount.ValueChanged += TkbCount_ValueChanged;
 
@@ -135,7 +140,7 @@ namespace MusicGame
                 return;
             }
 
-            musicPlayer.SetMusic(resultPath[0]);
+            musicPlayer.SetMusic(resultPath[INDEXMUSIC]);
             musicPlayer.PlayMusic();
             InitTimer();
         }
@@ -200,24 +205,27 @@ namespace MusicGame
 
         }
 
-        //public List<string> SampleText()
-        //{
-        //    List<string> result = new List<string>();
-
-        //    List<>
-
-
-        //    return result;
-        //}
 
         private void BtnPrev_Click(object sender, EventArgs e)
         {
             // 이전 곡
+            if (--INDEXMUSIC < 0)
+            {
+                INDEXMUSIC = MUSICAMOUNT -1 ;
+            }
+            
+            SetGame(INDEXMUSIC);
         }
 
         private void BtnNext_Click(object sender, EventArgs e)
         {
             // 다음 곡
+            if (++INDEXMUSIC >= MUSICAMOUNT)
+            {
+                INDEXMUSIC = 0;
+            }
+
+            SetGame(INDEXMUSIC);
         }
 
         private void BtnOpen_Click(object sender, EventArgs e)
@@ -238,25 +246,40 @@ namespace MusicGame
                 return;
             }
 
-            Dictionary<string, List<string>> result = id3Utils.GetId3Lylics(path).Item1;
+            result = id3Utils.GetId3Lylics(path).Item1;
             resultPath = id3Utils.GetId3Lylics(path).Item2;
+            MUSICAMOUNT = result.Count();
 
+            SetGame(INDEXMUSIC);
+      
+        }
+
+        private void SetGame(int position) 
+        {
+            int filePosiion = 0;
             foreach (var item in result)
             {
+                if (filePosiion < position)
+                {
+                    filePosiion++;
+                }
+                else 
+                {
                 lylics = SplitLylics(item.Value);
 
                 rtbContents.Text = lylics[0];
                 SetTrackBar(lylics.Length);
-                //  rtbContents.Text = item.Value[0];
-                // Tts(item.Value);
-                break;
+                    //  rtbContents.Text = item.Value[0];
+                    // Tts(item.Value);
+                    break;
+                }
+               
             }
         }
-
         private void BtnResult_Click(object sender, EventArgs e)
         {
             // 결과 보여주기
-            // Tts();
+            Tts(lylics);
         }
 
         /// <summary>
@@ -292,7 +315,7 @@ namespace MusicGame
         /// <summary>
         /// 음성 듣기(tts)
         /// </summary>
-        private bool Tts(List<string> lyrics)
+        private bool Tts(string[] lyrics)
         {
             bool isSuccess = false;
 
@@ -306,10 +329,11 @@ namespace MusicGame
 
                 foreach (var text in lyrics)
                 {
-                    byte[] bytes = Encoding.Default.GetBytes(text);
+                    //byte[] bytes = Encoding.Default.GetBytes(text);
 
-                    string encodingText = Encoding.UTF8.GetString(bytes);
-                    speechSynthesizer.Speak(encodingText);
+                    //string encodingText = Encoding.UTF8.GetString(bytes);
+                    //speechSynthesizer.Speak(encodingText);
+                    speechSynthesizer.Speak(text);
                 }
 
                 isSuccess = true;
