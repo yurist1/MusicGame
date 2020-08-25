@@ -29,6 +29,8 @@ namespace MusicGame
         private int INDEXMUSIC = 0;
         private int MUSICAMOUNT = 0;
         private Dictionary<string, List<string>> result;
+        private delegate void EventHandler(string answer);
+        private event EventHandler Answer;
 
         private MusicPlayer musicPlayer;
         public MainForm()
@@ -79,6 +81,7 @@ namespace MusicGame
 
         private void InitEvent()
         {
+           
             btnOpen.Click += BtnOpen_Click;
             btnResult.Click += BtnResult_Click;
             btnNext.Click += BtnNext_Click;
@@ -279,7 +282,11 @@ namespace MusicGame
         private void BtnResult_Click(object sender, EventArgs e)
         {
             // 결과 보여주기
-            Tts(lylics);
+            //Tts(lylics);
+            //정답보여주기 
+            Answer += new EventHandler(ShowAnswer);
+            Action(INDEXMUSIC);
+
         }
 
         /// <summary>
@@ -402,6 +409,25 @@ namespace MusicGame
             //            speechSynthesizer.Speak(sample);
 
             return isSuccess;
+        }
+
+        private void ShowAnswer(string answer) 
+        {
+            rtbContents.Text = answer;
+        }
+        private void Action(int index) 
+        {
+            int num = 0;
+            foreach (var item in result)
+            {
+                if (num == index)
+                {
+                    Answer($"정답: {item.Key}");
+                    break;
+                }
+                else { num++; }
+            }
+          
         }
     }
 }
