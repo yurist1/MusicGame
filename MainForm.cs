@@ -417,17 +417,25 @@ namespace MusicGame
         }
         private void Action(int index) 
         {
-            int num = 0;
-            foreach (var item in result)
+            //int num = 0;
+            //foreach (var item in result)
+            //{
+            //    if (num == index)
+            //    {
+            //        Answer($"정답: {item.Key}");
+            //        break;
+            //    }
+            //    else { num++; }
+            //}
+
+            for (int i = 0; i < result.Count(); i++)
             {
-                if (num == index)
+                if (i == index) 
                 {
-                    Answer($"정답: {item.Key}");
+                    Answer($"정답 : {result.Keys.ToList()[i]}");
                     break;
                 }
-                else { num++; }
             }
-          
         }
     }
 }
