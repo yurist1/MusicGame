@@ -70,11 +70,41 @@
     <Compile Include="MusicPlayer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UcGameContents.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UcGameContents.Designer.cs">
+      <DependentUpon>UcGameContents.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UcGameResult.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UcGameResult.Designer.cs">
+      <DependentUpon>UcGameResult.cs</DependentUpon>
+    </Compile>
     <Compile Include="UcGameType.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UcGameType.Designer.cs">
       <DependentUpon>UcGameType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UcLyricTrackBar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UcLyricTrackBar.Designer.cs">
+      <DependentUpon>UcLyricTrackBar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UcMusicTrackBar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UcMusicTrackBar.Designer.cs">
+      <DependentUpon>UcMusicTrackBar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UcOpenFile.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UcOpenFile.Designer.cs">
+      <DependentUpon>UcOpenFile.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -87,11 +117,36 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="UcGameContents.resx">
+      <DependentUpon>UcGameContents.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UcGameResult.resx">
+      <DependentUpon>UcGameResult.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UcGameType.resx">
       <DependentUpon>UcGameType.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UcLyricTrackBar.resx">
+      <DependentUpon>UcLyricTrackBar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UcMusicTrackBar.resx">
+      <DependentUpon>UcMusicTrackBar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UcOpenFile.resx">
+      <DependentUpon>UcOpenFile.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\Id3Utils.datasource" />
+    <None Include="Properties\DataSources\MainForm.datasource" />
+    <None Include="Properties\DataSources\MusicGame.Properties.Resources.datasource" />
+    <None Include="Properties\DataSources\MusicGame.Properties.Settings.datasource" />
+    <None Include="Properties\DataSources\MusicPlayer.datasource" />
+    <None Include="Properties\DataSources\Program.datasource" />
+    <None Include="Properties\DataSources\UcGameType.datasource" />
+    <None Include="Properties\DataSources\UcLyricTrackBar.datasource" />
+    <None Include="Properties\DataSources\UcMusicTrackBar.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

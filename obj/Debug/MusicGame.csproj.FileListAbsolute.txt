@@ -77,10 +77,14 @@ C:\Users\star0\OneDrive\문서\카카오톡 받은 파일\MusicGame\MusicGame\Mu
 C:\Users\star0\OneDrive\문서\카카오톡 받은 파일\MusicGame\MusicGame\MusicGame\bin\Debug\JetBrains.Annotations.dll
 C:\Users\star0\OneDrive\문서\카카오톡 받은 파일\MusicGame\MusicGame\MusicGame\bin\Debug\Id3.Net.xml
 C:\Users\star0\OneDrive\문서\카카오톡 받은 파일\MusicGame\MusicGame\MusicGame\bin\Debug\JetBrains.Annotations.xml
-C:\Users\star0\OneDrive\문서\카카오톡 받은 파일\MusicGame\MusicGame\MusicGame\obj\Debug\MusicGame.csprojAssemblyReference.cache
 C:\Users\star0\OneDrive\문서\카카오톡 받은 파일\MusicGame\MusicGame\MusicGame\obj\Debug\MusicGame.MainForm.resources
 C:\Users\star0\OneDrive\문서\카카오톡 받은 파일\MusicGame\MusicGame\MusicGame\obj\Debug\MusicGame.Properties.Resources.resources
+C:\Users\star0\OneDrive\문서\카카오톡 받은 파일\MusicGame\MusicGame\MusicGame\obj\Debug\MusicGame.UcGameContents.resources
+C:\Users\star0\OneDrive\문서\카카오톡 받은 파일\MusicGame\MusicGame\MusicGame\obj\Debug\MusicGame.UcGameResult.resources
 C:\Users\star0\OneDrive\문서\카카오톡 받은 파일\MusicGame\MusicGame\MusicGame\obj\Debug\MusicGame.UcGameType.resources
+C:\Users\star0\OneDrive\문서\카카오톡 받은 파일\MusicGame\MusicGame\MusicGame\obj\Debug\MusicGame.UcLyricTrackBar.resources
+C:\Users\star0\OneDrive\문서\카카오톡 받은 파일\MusicGame\MusicGame\MusicGame\obj\Debug\MusicGame.UcMusicTrackBar.resources
+C:\Users\star0\OneDrive\문서\카카오톡 받은 파일\MusicGame\MusicGame\MusicGame\obj\Debug\MusicGame.UcOpenFile.resources
 C:\Users\star0\OneDrive\문서\카카오톡 받은 파일\MusicGame\MusicGame\MusicGame\obj\Debug\MusicGame.csproj.GenerateResource.cache
 C:\Users\star0\OneDrive\문서\카카오톡 받은 파일\MusicGame\MusicGame\MusicGame\obj\Debug\MusicGame.csproj.CoreCompileInputs.cache
 C:\Users\star0\OneDrive\문서\카카오톡 받은 파일\MusicGame\MusicGame\MusicGame\obj\Debug\MusicGame.csproj.CopyComplete
