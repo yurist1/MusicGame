@@ -34,6 +34,7 @@
             this.ucGameResult1 = new MusicGame.UcGameResult();
             this.ucGameContents1 = new MusicGame.UcGameContents();
             this.ucGameType1 = new MusicGame.UcGameType();
+            this.lbMusicCount = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // printPreviewDialog1
@@ -75,11 +76,21 @@
             this.ucGameType1.Size = new System.Drawing.Size(1406, 250);
             this.ucGameType1.TabIndex = 4;
             // 
+            // lbMusicCount
+            // 
+            this.lbMusicCount.AutoSize = true;
+            this.lbMusicCount.Location = new System.Drawing.Point(262, 288);
+            this.lbMusicCount.Name = "lbMusicCount";
+            this.lbMusicCount.Size = new System.Drawing.Size(45, 15);
+            this.lbMusicCount.TabIndex = 5;
+            this.lbMusicCount.Text = "label1";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1125, 598);
+            this.Controls.Add(this.lbMusicCount);
             this.Controls.Add(this.ucGameType1);
             this.Controls.Add(this.ucGameContents1);
             this.Controls.Add(this.ucGameResult1);
@@ -88,6 +99,7 @@
             this.Name = "MainForm";
             this.Text = "노래 맞추자";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -97,6 +109,7 @@
         private UcGameResult ucGameResult1;
         private UcGameContents ucGameContents1;
         private UcGameType ucGameType1;
+        private System.Windows.Forms.Label lbMusicCount;
     }
 }
 

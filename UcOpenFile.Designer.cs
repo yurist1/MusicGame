@@ -31,6 +31,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnOpen = new System.Windows.Forms.Button();
             this.tbPath = new System.Windows.Forms.TextBox();
+            this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -80,5 +81,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox tbPath;
         private System.Windows.Forms.Button btnOpen;
+        private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog;
     }
 }

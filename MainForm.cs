@@ -17,7 +17,7 @@ namespace MusicGame
 {
     public partial class MainForm : Form
     {
-        // 0 : 가사 보기, 1 : 노래 듣기
+        // 0 : 가사 보기, 1 : 노래 듣기 , 2 : 가사 듣기
         private int GAME_TYPE = 0;
         private SpeechSynthesizer speechSynthesizer;
         private Id3Utils id3Utils;
@@ -29,8 +29,10 @@ namespace MusicGame
         private int INDEXMUSIC = 0;
         private int MUSICAMOUNT = 0;
         private Dictionary<string, List<string>> result;
-        private delegate void EventHandler(string answer);
-        private event EventHandler Answer;
+        //private delegate void EventHandler(string answer);
+    
+
+
 
         private MusicPlayer musicPlayer;
         public MainForm()
@@ -42,12 +44,12 @@ namespace MusicGame
 
         private void Init()
         {
-            // 이벤트 초기화
-            //InitEvent();
             // 컨트롤 초기화
-            //InitControl();
+            InitControl();
             // 객체 초기화
             InitObject();
+            // 이벤트 초기화
+            InitEvent();
         }
 
         private void InitTimer()
@@ -79,20 +81,27 @@ namespace MusicGame
             result = new Dictionary<string, List<string>>();
         }
 
-        //private void InitEvent()
-        //{
-           
-        //    btnOpen.Click += BtnOpen_Click;
-        //    btnResult.Click += BtnResult_Click;
-        //    btnNext.Click += BtnNext_Click;
-        //    btnPrev.Click += BtnPrev_Click;
-            
+        private void InitEvent()
+        {
+            //오픈파일콜백
+            this.ucOpenFile1.GetPath += new EventHandler(GetDirectory);
+            //뮤직 타입
+            //this.ucGameType1
 
-        //    tkbCount.ValueChanged += TkbCount_ValueChanged;
+            //ucOpenFile.CausesValidationChanged += BtnOpen_Click;
+            //btnResult.Click += BtnResult_Click;
+            //btnNext.Click += BtnNext_Click;
+            //btnPrev.Click += BtnPrev_Click;
 
-        //    // 콤보박스 상태 변경 이벤트
-        //    cbType.SelectedValueChanged += CbType_SelectedValueChanged;
-        //}
+
+            //tkbCount.ValueChanged += TkbCount_ValueChanged;
+
+            //콤보박스 상태 변경 이벤트
+            //cbType.SelectedValueChanged += CbType_SelectedValueChanged;
+        }
+
+      
+
         //Button btnPlay;
         //private void CbType_SelectedValueChanged(object sender, EventArgs e)
         //{
@@ -158,7 +167,7 @@ namespace MusicGame
         //    lbCount.Text = ((TrackBar)sender).Value.ToString();
         //    if (GAME_TYPE == 0)
         //    {
-                
+
         //        if (lylics != null)
         //        {
         //            try
@@ -177,14 +186,12 @@ namespace MusicGame
         //    }
         //}
 
-        //private void InitControl()
-        //{
-        //    lbCount.Text = "0";
-        //    cbType.Items.Add("가사 보기");
-        //    cbType.Items.Add("노래 듣기");
+        private void InitControl()
+        {
+            lbMusicCount.Text = $"문제 {MUSICAMOUNT}개";
 
-        //    cbType.SelectedIndex = 0;
-        //}
+
+        }
 
         //private void SetTrackBar(int count = 0)
         //{
@@ -203,15 +210,6 @@ namespace MusicGame
         //    rtbContents.Text = lylics;
         //}
 
-        private void GetLylics()
-        {
-
-        }
-
-        private void ucGameType1_Load(object sender, EventArgs e)
-        {
-
-        }
 
 
         //private void BtnPrev_Click(object sender, EventArgs e)
@@ -236,54 +234,42 @@ namespace MusicGame
         //    SetGame(INDEXMUSIC);
         //}
 
-        //    private void BtnOpen_Click(object sender, EventArgs e)
-        //    {
-        //        string path = string.Empty;
 
-        //        // 디렉토리 오픈
-        //        if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
-        //        {
 
-        //            path = folderBrowserDialog.SelectedPath;
+        private void SetGame(int position)
+        {
+            int filePosiion = 0;
+            foreach (var item in result)
+            {
+                if (filePosiion < position)
+                {
+                    filePosiion++;
+                }
+                else
+                {
+                    lylics = SplitLylics(item.Value);
 
-        //            tbPath.Text = path;
-        //        }
+                    //this.ucGameContents1.Text = lylics[0];
+                    //SetTrackBar(lylics.Length);
+                    //  rtbContents.Text = item.Value[0];
+                    // Tts(item.Value);
+                    break;
+                }
 
-        //        if (string.IsNullOrEmpty(path))
-        //        {
-        //            return;
-        //        }
+            }
 
-        //        result = id3Utils.GetId3Lylics(path).Item1;
-        //        resultPath = id3Utils.GetId3Lylics(path).Item2;
-        //        MUSICAMOUNT = result.Count();
+            SetGameType();
+        }
 
-        //        SetGame(INDEXMUSIC);
+        private void SetGameType() 
+        {
+            //ucGameTypdp Lyric count 인자 넘기기 
+            this.ucGameType1.SetGameType(lylics.Count());
+            //game contents 보여주기
+            SetGameContents();
 
-        //    }
-
-        //    private void SetGame(int position) 
-        //    {
-        //        int filePosiion = 0;
-        //        foreach (var item in result)
-        //        {
-        //            if (filePosiion < position)
-        //            {
-        //                filePosiion++;
-        //            }
-        //            else 
-        //            {
-        //            lylics = SplitLylics(item.Value);
-
-        //            rtbContents.Text = lylics[0];
-        //            SetTrackBar(lylics.Length);
-        //                //  rtbContents.Text = item.Value[0];
-        //                // Tts(item.Value);
-        //                break;
-        //            }
-
-        //        }
-        //    }
+        }
+        private void SetGameContents() { }
         //    private void BtnResult_Click(object sender, EventArgs e)
         //    {
         //        // 결과 보여주기
@@ -294,26 +280,26 @@ namespace MusicGame
 
         //    }
 
-        //    /// <summary>
-        //    /// 가사 분리(줄 단위)
-        //    /// </summary>
-        //    /// <param name="lylics">가사</param>
-        //    /// <returns>분리된 가사</returns>
-        //    private string[] SplitLylics(List<string> lylics)
-        //    {
-        //        string tempItem = lylics[0];
-        //        List<string> result = new List<string>();
+        /// <summary>
+        /// 가사 분리(줄 단위)
+        /// </summary>
+        /// <param name="lylics">가사</param>
+        /// <returns>분리된 가사</returns>
+        private string[] SplitLylics(List<string> lylics)
+        {
+            string tempItem = lylics[0];
+            List<string> result = new List<string>();
 
-        //        foreach (var item in tempItem.Split('\n'))
-        //        {
-        //            if (!string.IsNullOrWhiteSpace(item))
-        //            {
-        //                result.Add(item);
-        //            }
-        //        }
+            foreach (var item in tempItem.Split('\n'))
+            {
+                if (!string.IsNullOrWhiteSpace(item))
+                {
+                    result.Add(item);
+                }
+            }
 
-        //        return result.ToArray();
-        //    }
+            return result.ToArray();
+        }
 
         //    /// <summary>
         //    /// 음원에서 가사 추출
@@ -363,84 +349,30 @@ namespace MusicGame
         //        {
         //            speechSynthesizer.Dispose();
         //        }
-        //        // string sample = "왜들 그리 다운돼있어? 뭐가 문제야 say something"
-        //        //+ "분위기가 겁나 싸해 요새는 이런 게 유행인가"
-        //        //+ "왜들 그리 재미없어? 아 그건 나도 마찬가지"
-        //        //+ "Tell me what I got to do 급한 대로 블루투스 켜"
-        //        //+ "아무 노래나 일단 틀어 아무거나 신나는 걸로"
-        //        //+ "아무렇게나 춤춰 아무렇지 않아 보이게"
-        //        //+ "아무 생각 하기 싫어 아무개로 살래 잠시"
-        //        //+ "I'm sick and tired of my every day, keep it up 한 곡 더"
-        //        //+ "아무 노래나 일단 틀어 아무렴 어때 it's so boring"
-        //        //+ "아무래도 refresh가 시급한 듯해 쌓여가 스트레스가"
-        //        //+ "배꼽 빠질 만큼만 폭소하고 싶은 날이야"
-        //        //+ "What up my dawgs? 어디야 너희 올 때 병맥주랑 까까 몇 개 사 와 uh"
-        //        //+ "클럽은 구미가 잘 안 당겨 우리 집 거실로 빨랑 모여"
-        //        //+ "외부인은 요령껏 차단 시켜 밤새 수다 떨 시간도 모자라"
-        //        //+ "누군 힘들어 죽겠고 누군 축제 괜히 싱숭생숭 I want my youth back"
-        //        //+ "좀 전까지 왁자지껄 하다 한 명 두 명씩 자릴 떠"
-        //        //+ "왜들 그리 다운돼있어? 뭐가 문제야 say something"
-        //        //+ "분위기가 겁나 싸해 요새는 이런 게 유행인가"
-        //        //+ "왜들 그리 재미없어? 아 그건 나도 마찬가지"
-        //        //+ "Tell me what I got to do 급한 대로 블루투스 켜"
-        //        //+ "아무 노래나 일단 틀어 아무거나 신나는 걸로"
-        //        //+ "아무렇게나 춤춰 아무렇지 않아 보이게"
-        //        //+ "아무 생각 하기 싫어 아무개로 살래 잠시"
-        //        //+ "I'm sick and tired of my every day, keep it up 한 곡 더"
-        //        //+ "떠나질 못할 바엔"
-        //        //+ "창밖은 쳐다도 안 봐"
-        //        //+ "회까닥해서 추태를 부려도"
-        //        //+ "No worries at all 이미지 왜 챙겨 그래 봤자 우리끼린데"
-        //        //+ "Ooh 늦기 전에 막판 스퍼트 20대가 얼마 안 남았어"
-        //        //+ "편한 옷으로 갈아입어 you look nice, get 'em high"
-        //        //+ "얼핏 보면 그냥 코미디 이렇게 무해한 파티 처음이지?"
-        //        //+ "만감이 교차하는 새벽 2시경 술잔과 감정이 소용돌이쳐"
-        //        //+ "왜들 그리 다운돼있어? 뭐가 문제야 say something"
-        //        //+ "분위기가 겁나 싸해 요새는 이런 게 유행인가"
-        //        //+ "왜들 그리 재미없어? 아 그건 나도 마찬가지"
-        //        //+ "Tell me what I got to do 급한 대로 블루투스 켜"
-        //        //+ "아무 노래나 일단 틀어 아무거나 신나는 걸로"
-        //        //+ "아무렇게나 춤춰 아무렇지 않아 보이게"
-        //        //+ "아무 생각 하기 싫어 아무개로 살래 잠시"
-        //        //+ "I'm sick and tired of my every day, keep it up 한 곡 더"
-        //        //+ "아무 노래나 일단"
-        //        //+ "La - la - la, la - la - la, la - la - la - la"
-        //        //+ "La - la - la, la - la - la, la - la - la - la"
-        //        //+ "아무 노래 아무 노래 아무 노래나 틀어봐"
-        //        //+ "아무 노래 아무 노래 아무 노래나 틀어봐"
-        //        //+ "아무 노래 아무 노래 아무 노래나 틀어봐"
-        //        //+ "아무 노래 아무 노래 아무 노래나 KOZ";
-
-        //        //            speechSynthesizer.Speak(sample);
-
         //        return isSuccess;
         //    }
 
-        //    private void ShowAnswer(string answer) 
-        //    {
-        //        rtbContents.Text = answer;
-        //    }
-        //    private void Action(int index) 
-        //    {
-        //        //int num = 0;
-        //        //foreach (var item in result)
-        //        //{
-        //        //    if (num == index)
-        //        //    {
-        //        //        Answer($"정답: {item.Key}");
-        //        //        break;
-        //        //    }
-        //        //    else { num++; }
-        //        //}
+        //public void ShowAnswer(string answer)
+        //{
+        //    //rtbContents.Text = answer;
+        //}
 
-        //        for (int i = 0; i < result.Count(); i++)
-        //        {
-        //            if (i == index) 
-        //            {
-        //                Answer($"정답 : {result.Keys.ToList()[i]}");
-        //                break;
-        //            }
-        //        }
-        //    }
+        //private void Action(int index)
+        //{
+        //   //path 전달
+
+        //        Answer(path);
+
+
+        //}
+        public void GetDirectory(string path)
+        {
+        
+            result = id3Utils.GetId3Lylics(path).Item1;
+            resultPath = id3Utils.GetId3Lylics(path).Item2;
+            MUSICAMOUNT = result.Count();
+            lbMusicCount.Text = $"문제 {MUSICAMOUNT}개";
+            SetGame(INDEXMUSIC);
+        }
     }
 }

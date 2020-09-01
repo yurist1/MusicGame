@@ -29,10 +29,11 @@
         private void InitializeComponent()
         {
             this.cbType = new System.Windows.Forms.ComboBox();
-            this.ucMusicTrackBar1 = new MusicGame.UcMusicTrackBar();
             this.btnPrev = new System.Windows.Forms.Button();
             this.btnNext = new System.Windows.Forms.Button();
             this.ucLyricTrackBar1 = new MusicGame.UcLyricTrackBar();
+            this.ucMusicTrackBar1 = new MusicGame.UcMusicTrackBar();
+            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.SuspendLayout();
             // 
             // cbType
@@ -40,19 +41,13 @@
             this.cbType.FormattingEnabled = true;
             this.cbType.Items.AddRange(new object[] {
             "가사 보기",
-            "노래 듣기"});
+            "노래 듣기",
+            "가사 듣기"});
             this.cbType.Location = new System.Drawing.Point(16, 24);
             this.cbType.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cbType.Name = "cbType";
             this.cbType.Size = new System.Drawing.Size(138, 23);
             this.cbType.TabIndex = 0;
-            // 
-            // ucMusicTrackBar1
-            // 
-            this.ucMusicTrackBar1.Location = new System.Drawing.Point(199, 0);
-            this.ucMusicTrackBar1.Name = "ucMusicTrackBar1";
-            this.ucMusicTrackBar1.Size = new System.Drawing.Size(1031, 111);
-            this.ucMusicTrackBar1.TabIndex = 2;
             // 
             // btnPrev
             // 
@@ -81,6 +76,13 @@
             this.ucLyricTrackBar1.Size = new System.Drawing.Size(952, 100);
             this.ucLyricTrackBar1.TabIndex = 7;
             // 
+            // ucMusicTrackBar1
+            // 
+            this.ucMusicTrackBar1.Location = new System.Drawing.Point(199, 0);
+            this.ucMusicTrackBar1.Name = "ucMusicTrackBar1";
+            this.ucMusicTrackBar1.Size = new System.Drawing.Size(1031, 111);
+            this.ucMusicTrackBar1.TabIndex = 2;
+            // 
             // UcGameType
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -104,5 +106,6 @@
         private System.Windows.Forms.Button btnPrev;
         private System.Windows.Forms.Button btnNext;
         private UcLyricTrackBar ucLyricTrackBar1;
+        private System.Windows.Forms.ColorDialog colorDialog1;
     }
 }

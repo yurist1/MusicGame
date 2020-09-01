@@ -46,9 +46,9 @@
             this.lbCount.AutoSize = true;
             this.lbCount.Location = new System.Drawing.Point(451, 56);
             this.lbCount.Name = "lbCount";
-            this.lbCount.Size = new System.Drawing.Size(45, 15);
+            this.lbCount.Size = new System.Drawing.Size(19, 19);
             this.lbCount.TabIndex = 9;
-            this.lbCount.Text = "label1";
+            this.lbCount.Text = "0";
             // 
             // UcLyricTrackBar
             // 
