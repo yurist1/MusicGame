@@ -61,6 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Id3Utils.cs" />
+    <Compile Include="ITrackBar.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>

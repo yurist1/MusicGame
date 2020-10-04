@@ -80,13 +80,19 @@ namespace MusicGame
             musicPlayer = new MusicPlayer();
             result = new Dictionary<string, List<string>>();
         }
-
+        static void onEvent1(object sender)
+        {
+            string objName = ((UcGameType)sender).Name;
+            Console.WriteLine("Object's name: " + objName);
+        }
         private void InitEvent()
         {
             //오픈파일콜백
             this.ucOpenFile1.GetPath += new EventHandler(GetDirectory);
             //뮤직 타입
-            //this.ucGameType1
+            this.ucGameType1.MyEvent += new EventHandler(GetGameType);
+            //정답
+            //this.ucGameResult1 += new EventHandler();
 
             //ucOpenFile.CausesValidationChanged += BtnOpen_Click;
             //btnResult.Click += BtnResult_Click;
@@ -212,27 +218,27 @@ namespace MusicGame
 
 
 
-        //private void BtnPrev_Click(object sender, EventArgs e)
-        //{
-        //    // 이전 곡
-        //    if (--INDEXMUSIC < 0)
-        //    {
-        //        INDEXMUSIC = MUSICAMOUNT -1 ;
-        //    }
+        private void BtnPrev_Click()
+        {
+            // 이전 곡
+            if (--INDEXMUSIC < 0)
+            {
+                INDEXMUSIC = MUSICAMOUNT - 1;
+            }
 
-        //    SetGame(INDEXMUSIC);
-        //}
+            SetGame(INDEXMUSIC);
+        }
 
-        //private void BtnNext_Click(object sender, EventArgs e)
-        //{
-        //    // 다음 곡
-        //    if (++INDEXMUSIC >= MUSICAMOUNT)
-        //    {
-        //        INDEXMUSIC = 0;
-        //    }
+        private void BtnNext_Click()
+        {
+            // 다음 곡
+            if (++INDEXMUSIC >= MUSICAMOUNT)
+            {
+                INDEXMUSIC = 0;
+            }
 
-        //    SetGame(INDEXMUSIC);
-        //}
+            SetGame(INDEXMUSIC);
+        }
 
 
 
@@ -261,15 +267,44 @@ namespace MusicGame
             SetGameType();
         }
 
+
+        //event 1개씩 만들기
+        //
+        //의존성(부모 -> 자식)역전
+        //자식 -> 부모
+        //
+
+
+
+
+
+
+
+
         private void SetGameType() 
         {
+            if (lylics.Count() > 0) 
+            {
             //ucGameTypdp Lyric count 인자 넘기기 
-            this.ucGameType1.SetGameType(lylics.Count());
+            this.ucGameType1.SetGameType(lylics.Count()-1);
             //game contents 보여주기
-            SetGameContents();
+                SetGameContents(lylics[0]);
+            }
 
         }
-        private void SetGameContents() { }
+        private void SetGameContents(string contents) 
+        {
+            if ( GAME_TYPE == 0)
+            {
+                this.ucGameContents1.SetGameContents(contents);
+            }
+            else 
+            {
+                this.ucGameContents1.SetGameContents("PLAY 버튼을 눌러 노래 및 가사를 들어보세요~");
+            }
+            
+
+        }
         //    private void BtnResult_Click(object sender, EventArgs e)
         //    {
         //        // 결과 보여주기
@@ -365,6 +400,115 @@ namespace MusicGame
 
 
         //}
+
+
+        public void GetGameType(string gameType)
+        {
+            if (lylics != null)
+            {
+                if (gameType.Equals("++"))
+                {
+                    BtnNext_Click();
+                }
+                else if (gameType.Equals("--")) 
+                {
+                    BtnPrev_Click();
+                }
+                else if (gameType.Contains("/"))
+                {
+                    GAME_TYPE = int.Parse(gameType.Split('/').First());
+
+                    if (GAME_TYPE == 0)
+                    {
+                        if (lylics.Count() > 0)
+                            SetGameContents(lylics[int.Parse(gameType.Split('/').Last())]);
+                    }
+                    else if (GAME_TYPE == 1)
+                    {
+                        SetGameContents("");
+                        if(gameType.Contains("play"))
+                            PlayMusic();
+                    }
+                    else
+                    {
+                        SetGameContents("");
+                        if (gameType.Contains("play"))
+                            Tts(lylics);
+                    }
+         
+
+                }
+                else
+                {
+                    GAME_TYPE = int.Parse(gameType);
+                    if (GAME_TYPE == 0)
+                    {
+                        if (lylics.Count() > 0)
+                            SetGameContents(lylics[0]);
+                    }
+                    else if (GAME_TYPE == 1)
+                    {
+                        SetGameContents("");
+                    }
+                    else
+                    {
+                        SetGameContents("");
+                    }
+
+
+                }
+            }
+         
+        }
+        private void PlayMusic() 
+        {
+            if (resultPath == null || resultPath.Length == 0)
+            {
+                return;
+            }
+
+            musicPlayer.SetMusic(resultPath[INDEXMUSIC]);
+            musicPlayer.PlayMusic();
+            InitTimer();
+        }
+        private bool Tts(string[] lyrics)
+        {
+            bool isSuccess = false;
+
+            try
+            {
+                speechSynthesizer.SetOutputToDefaultAudioDevice();
+
+                speechSynthesizer.SelectVoice("Microsoft Heami Desktop");
+
+                //speechSynthesizer.Rate = -10;
+
+                foreach (var text in lyrics)
+                {
+                    //byte[] bytes = Encoding.Default.GetBytes(text);
+
+                    //string encodingText = Encoding.UTF8.GetString(bytes);
+                    //speechSynthesizer.Speak(encodingText);
+                    speechSynthesizer.Speak(text);
+                }
+
+                isSuccess = true;
+
+            }
+            catch (IOException e)
+            {
+                isSuccess = false;
+            }
+            catch (Exception ex)
+            {
+                isSuccess = false;
+            }
+            finally
+            {
+                speechSynthesizer.Dispose();
+            }
+            return isSuccess;
+        }
         public void GetDirectory(string path)
         {
         

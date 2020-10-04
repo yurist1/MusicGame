@@ -12,6 +12,7 @@ using System.Xml.Serialization;
 namespace MusicGame
 {
     public delegate void EventHandler(string path);
+ 
     public partial class UcOpenFile : UserControl
     {
         public event EventHandler GetPath;

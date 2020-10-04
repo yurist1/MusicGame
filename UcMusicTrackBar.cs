@@ -13,6 +13,7 @@ namespace MusicGame
     public partial class UcMusicTrackBar : UserControl
     {
         private int MusicMaxCount = 5;
+        public event EventHandler EventLyricTrack;
         public UcMusicTrackBar()
         {
             InitializeComponent();
@@ -29,8 +30,14 @@ namespace MusicGame
         private void InitEvent()
         {
             tkbCount.ValueChanged += TkbCount_ValueChanged;
-
+            btnPlay.Click += BtnPlay_Click;
         }
+
+        private void BtnPlay_Click(object sender, EventArgs e)
+        {
+            EventLyricTrack("play");
+        }
+
         /// <summary>
         /// 트랙바 변경 이벤트
         /// </summary>
@@ -39,7 +46,7 @@ namespace MusicGame
         private void TkbCount_ValueChanged(object sender, EventArgs e)
         {
             lbCount.Text = ((TrackBar)sender).Value.ToString();
-
+            EventLyricTrack(lbCount.Text);
         }
     }
 }

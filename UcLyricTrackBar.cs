@@ -12,7 +12,7 @@ namespace MusicGame
 {
     public partial class UcLyricTrackBar : UserControl
     {
-        
+        public event EventHandler EventLyricTrack;
         public UcLyricTrackBar()
         {
             InitializeComponent();
@@ -37,7 +37,9 @@ namespace MusicGame
         private void TkbCount_ValueChanged(object sender, EventArgs e)
         {
             lbCount.Text = ((TrackBar)sender).Value.ToString();
-         
+            EventLyricTrack(lbCount.Text);
+
+
         }
         public void SetMaxTrack(int max) 
         {

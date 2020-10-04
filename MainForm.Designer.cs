@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             this.ucOpenFile1 = new MusicGame.UcOpenFile();
-            this.ucGameResult1 = new MusicGame.UcGameResult();
+            this.ucGameResult1 = new MusicGame.UcGameResult(this);
             this.ucGameContents1 = new MusicGame.UcGameContents();
             this.ucGameType1 = new MusicGame.UcGameType();
             this.lbMusicCount = new System.Windows.Forms.Label();

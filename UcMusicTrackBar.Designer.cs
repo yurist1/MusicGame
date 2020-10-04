@@ -57,7 +57,7 @@
             this.btnPlay.Name = "btnPlay";
             this.btnPlay.Size = new System.Drawing.Size(81, 41);
             this.btnPlay.TabIndex = 11;
-            this.btnPlay.Text = " ";
+            this.btnPlay.Text = MusicGame.Properties.Resources.play;
             this.btnPlay.UseVisualStyleBackColor = true;
             // 
             // UcMusicTrackBar
