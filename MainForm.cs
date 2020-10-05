@@ -92,105 +92,11 @@ namespace MusicGame
             //뮤직 타입
             this.ucGameType1.MyEvent += new EventHandler(GetGameType);
             //정답
-            //this.ucGameResult1 += new EventHandler();
-
-            //ucOpenFile.CausesValidationChanged += BtnOpen_Click;
-            //btnResult.Click += BtnResult_Click;
-            //btnNext.Click += BtnNext_Click;
-            //btnPrev.Click += BtnPrev_Click;
+            this.ucGameResult1.GetResult += new EventHandler(GetResult);
 
 
-            //tkbCount.ValueChanged += TkbCount_ValueChanged;
-
-            //콤보박스 상태 변경 이벤트
-            //cbType.SelectedValueChanged += CbType_SelectedValueChanged;
         }
 
-      
-
-        //Button btnPlay;
-        //private void CbType_SelectedValueChanged(object sender, EventArgs e)
-        //{
-
-        //    if (((ComboBox)sender).SelectedItem.Equals("가사 보기"))
-        //    {
-        //        GAME_TYPE = 0;
-        //        tkbCount.Width = tkbCount.Width;
-
-        //        // 버튼 되돌리기
-        //        if (this.Controls.Contains(btnPlay) && btnPlay != null)
-        //        {
-        //            tkbCount.Width = tkbCount.Width + 100;
-
-        //            this.Controls.Remove(btnPlay);
-        //        }
-
-        //    }
-        //    else
-        //    {
-        //        GAME_TYPE = 1;
-        //        tkbCount.Width = tkbCount.Width - 100;
-        //        btnPlay = new Button();
-        //        btnPlay.Location = new Point(880, 70);
-        //        btnPlay.Width = 100;
-        //        btnPlay.Height = 30;
-        //        btnPlay.Text = "Play";
-        //        this.Controls.Add(btnPlay);
-
-        //        btnPlay.Click += BtnPlay_Click;
-        //    }
-        //    if (lylics != null)
-        //    {
-        //        SetTrackBar(lylics.Length);
-        //    }
-
-        //}
-
-        ///// <summary>
-        ///// 음악 재생
-        ///// </summary>
-        ///// <param name="sender"></param>
-        ///// <param name="e"></param>
-        //private void BtnPlay_Click(object sender, EventArgs e)
-        //{
-        //    if (resultPath == null || resultPath.Length == 0)
-        //    {
-        //        return;
-        //    }
-
-        //    musicPlayer.SetMusic(resultPath[INDEXMUSIC]);
-        //    musicPlayer.PlayMusic();
-        //    InitTimer();
-        //}
-
-        ///// <summary>
-        ///// 트랙바 변경 이벤트
-        ///// </summary>
-        ///// <param name="sender"></param>
-        ///// <param name="e"></param>
-        //private void TkbCount_ValueChanged(object sender, EventArgs e)
-        //{
-        //    lbCount.Text = ((TrackBar)sender).Value.ToString();
-        //    if (GAME_TYPE == 0)
-        //    {
-
-        //        if (lylics != null)
-        //        {
-        //            try
-        //            {
-        //                NexusTrackBar(lylics[((TrackBar)sender).Value]);
-        //            }
-        //            catch
-        //            {
-        //                //ignore
-        //            }
-        //        }
-        //    }
-        //    else
-        //    {
-        //        MusicMaxCount = ((TrackBar)sender).Value;
-        //    }
-        //}
 
         private void InitControl()
         {
@@ -198,24 +104,6 @@ namespace MusicGame
 
 
         }
-
-        //private void SetTrackBar(int count = 0)
-        //{
-        //    if (GAME_TYPE == 0)
-        //    {
-        //        tkbCount.Maximum = count;
-        //    }
-        //    else
-        //    {
-        //        tkbCount.Maximum = 5;
-        //    }
-        //}
-
-        //private void NexusTrackBar(string lylics)
-        //{
-        //    rtbContents.Text = lylics;
-        //}
-
 
 
         private void BtnPrev_Click()
@@ -240,7 +128,7 @@ namespace MusicGame
             SetGame(INDEXMUSIC);
         }
 
-
+      
 
         private void SetGame(int position)
         {
@@ -273,12 +161,6 @@ namespace MusicGame
         //의존성(부모 -> 자식)역전
         //자식 -> 부모
         //
-
-
-
-
-
-
 
 
         private void SetGameType() 
@@ -335,72 +217,11 @@ namespace MusicGame
 
             return result.ToArray();
         }
-
-        //    /// <summary>
-        //    /// 음원에서 가사 추출
-        //    /// </summary>
-        //    /// <returns>가사</returns>
-        //    private string MusicToLyrics()
-        //    {
-        //        return "";
-        //    }
-
-        //    /// <summary>
-        //    /// 음성 듣기(tts)
-        //    /// </summary>
-        //    private bool Tts(string[] lyrics)
-        //    {
-        //        bool isSuccess = false;
-
-        //        try
-        //        {
-        //            speechSynthesizer.SetOutputToDefaultAudioDevice();
-
-        //            speechSynthesizer.SelectVoice("Microsoft Heami Desktop");
-
-        //            //speechSynthesizer.Rate = -10;
-
-        //            foreach (var text in lyrics)
-        //            {
-        //                //byte[] bytes = Encoding.Default.GetBytes(text);
-
-        //                //string encodingText = Encoding.UTF8.GetString(bytes);
-        //                //speechSynthesizer.Speak(encodingText);
-        //                speechSynthesizer.Speak(text);
-        //            }
-
-        //            isSuccess = true;
-
-        //        }
-        //        catch (IOException e)
-        //        {
-        //            isSuccess = false;
-        //        }
-        //        catch (Exception ex)
-        //        {
-        //            isSuccess = false;
-        //        }
-        //        finally
-        //        {
-        //            speechSynthesizer.Dispose();
-        //        }
-        //        return isSuccess;
-        //    }
-
-        //public void ShowAnswer(string answer)
-        //{
-        //    //rtbContents.Text = answer;
-        //}
-
-        //private void Action(int index)
-        //{
-        //   //path 전달
-
-        //        Answer(path);
-
-
-        //}
-
+        public void GetResult(string answer) 
+        {
+            if(result != null)
+            SetGameContents("정답 !!! "+result.Keys.ToList()[INDEXMUSIC]);
+        }
 
         public void GetGameType(string gameType)
         {

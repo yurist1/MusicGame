@@ -37,8 +37,9 @@
             this.btnResult.Name = "btnResult";
             this.btnResult.Size = new System.Drawing.Size(919, 93);
             this.btnResult.TabIndex = 0;
-            this.btnResult.Text = "button1";
+            this.btnResult.Text = "정답";
             this.btnResult.UseVisualStyleBackColor = true;
+            this.btnResult.Click += new System.EventHandler(this.btnResult_Click);
             // 
             // UcGameResult
             // 

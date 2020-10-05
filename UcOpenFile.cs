@@ -20,6 +20,7 @@ namespace MusicGame
         public UcOpenFile()
         {
             InitializeComponent();
+            //초기화
             init();
         }
 
@@ -30,6 +31,7 @@ namespace MusicGame
         }
         private void InitEvent() 
         {
+            //클릭이벤트 지정
             btnOpen.Click += BtnOpen_Click;
         }
 
@@ -42,11 +44,11 @@ namespace MusicGame
             {
 
                 path = folderBrowserDialog.SelectedPath;
-
                 tbPath.Text = path;
+                //이벤트 핸들러 액션
                 Action(path);
             }
-
+            //null check
             if (string.IsNullOrEmpty(path))
             {
                 return;
@@ -58,8 +60,6 @@ namespace MusicGame
             //path 전달
 
             GetPath(path);
-
-
         }
 
     }
